@@ -15,14 +15,14 @@ public class LaptopService {
         this.laptopRepository = laptopRepository;
     }
 
-    public void save(Laptop laptop) {
-        laptopRepository.save(laptop);
+    public Laptop save(Laptop laptop) {
+        return laptopRepository.save(laptop);
     }
-    public void update(Laptop laptop) {
-        laptopRepository.save(laptop);
+    public Laptop update(Laptop laptop) {
+        return laptopRepository.save(laptop);
     }
     public Collection<Laptop> getAll(){
-        return new ArrayList<>(laptopRepository.findAll());
+        return laptopRepository.findAll();
     }
 
     public Laptop getById(Long id){

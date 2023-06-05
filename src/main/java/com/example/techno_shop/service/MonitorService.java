@@ -15,16 +15,16 @@ public class MonitorService {
         this.monitorRepository = monitorRepository;
     }
 
-    public void save(Monitor monitor) {
-        monitorRepository.save(monitor);
+    public Monitor save(Monitor monitor) {
+       return monitorRepository.save(monitor);
     }
 
-    public void update(Monitor monitor) {
-        monitorRepository.save(monitor);
+    public Monitor update(Monitor monitor) {
+        return monitorRepository.save(monitor);
     }
 
     public Collection<Monitor> getAll() {
-        return new ArrayList<>(monitorRepository.findAll());
+        return monitorRepository.findAll();
     }
 
     public Monitor getById(Long id) {
