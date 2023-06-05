@@ -15,15 +15,15 @@ public class DesktopComputerService {
         this.desktopComputerRepository = desktopComputerRepository;
     }
 
-    public void save(DesktopComputer desktopComputer) {
-        desktopComputerRepository.save(desktopComputer);
+    public DesktopComputer save(DesktopComputer desktopComputer) {
+        return desktopComputerRepository.save(desktopComputer);
     }
 
-    public void update(DesktopComputer desktopComputer) {
-        desktopComputerRepository.save(desktopComputer);
+    public DesktopComputer update(DesktopComputer desktopComputer) {
+        return desktopComputerRepository.save(desktopComputer);
     }
     public Collection<DesktopComputer> getAll(){
-        return new ArrayList<>(desktopComputerRepository.findAll());
+        return desktopComputerRepository.findAll();
     }
     public DesktopComputer getById(Long id){
         return desktopComputerRepository.findDesktopComputerById(id);

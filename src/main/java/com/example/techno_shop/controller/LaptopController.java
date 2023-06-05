@@ -3,6 +3,8 @@ package com.example.techno_shop.controller;
 import com.example.techno_shop.model.Laptop;
 import com.example.techno_shop.service.LaptopService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -18,26 +20,34 @@ public class LaptopController {
     }
 
     @PostMapping
-    public void save(@RequestBody Laptop laptop) {
+    public Laptop save(@RequestBody Laptop laptop) {
         log.info("Was invoked method for save in LaptopController");
-        laptopService.save(laptop);
+        return laptopService.save(laptop);
     }
 
     @PutMapping("/update")
-    public void update(@RequestBody Laptop laptop) {
+    public ResponseEntity<Laptop> update(@RequestBody Laptop laptop) {
         log.info("Was invoked method for update in LaptopController");
-        laptopService.update(laptop);
+        Laptop laptop1 = laptopService.update(laptop);
+        if (laptop1 == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.ok(laptop1);
     }
 
     @GetMapping("/get_all")
-    public Collection<Laptop> getAll() {
+    public ResponseEntity<Collection<Laptop>> getAll() {
         log.info("Was invoked method for get all in LaptopController");
-        return laptopService.getAll();
+        return ResponseEntity.ok(laptopService.getAll());
     }
 
     @GetMapping("/get_laptop_by_id/{id}")
-    public Laptop getById(@PathVariable Long id) {
+    public ResponseEntity<Laptop> getById(@PathVariable Long id) {
         log.info("Was invoked method for get by id in LaptopController");
-        return laptopService.getById(id);
+        Laptop laptop1 = laptopService.getById(id);
+        if (laptop1 == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(laptop1);
     }
 }

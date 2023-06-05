@@ -15,16 +15,16 @@ public class HardDiskService {
         this.hardDiskRepository = hardDiskRepository;
     }
 
-    public void save(HardDisk hardDisk) {
-        hardDiskRepository.save(hardDisk);
+    public HardDisk save(HardDisk hardDisk) {
+        return hardDiskRepository.save(hardDisk);
     }
 
-    public void update(HardDisk hardDisk) {
-        hardDiskRepository.save(hardDisk);
+    public HardDisk update(HardDisk hardDisk) {
+        return hardDiskRepository.save(hardDisk);
     }
 
     public Collection<HardDisk> getAll() {
-        return new ArrayList<>(hardDiskRepository.findAll());
+        return hardDiskRepository.findAll();
     }
 
     public HardDisk getById(Long id) {
