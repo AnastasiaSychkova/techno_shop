@@ -10,6 +10,13 @@ Spring Boot приложение, интернет магазин техники
 - просмотр всех существующих товаров по типу
 - просмотр товара по идентификатору
 
+## cтек технологий
+- Java 11
+- Spring Boot,Web
+- Hibernate
+- PostgreSQL
+- Maven
+
 ## __запуск__
 
 - необходимо скопировать [ссылку на проект](https://github.com/AnastasiaSychkova/techno_shop)
